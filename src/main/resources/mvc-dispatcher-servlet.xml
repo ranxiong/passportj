@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 启用spring MVC注解支持 -->
+    <mvc:annotation-driven />
+
+    <!-- 使Spring关注Annotation -->
+    <!--<context:annotation-config />-->
+
+    <!-- 让Spring通过自动扫描来查询和管理Bean -->
+    <!-- root -->
+    <context:component-scan base-package="core.controller.springmvcexamples"/>
+    <context:component-scan base-package="com.passport.controller.action.v1"/>
+    <context:component-scan base-package="com.passport.controller.api.v1"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>
