@@ -9,4 +9,7 @@ package core.app.springmvc;
  */
 public class Document {
 
+    public void getDocument(){
+        // TODO 首先，得到所有的api，然后得到接口的有效信息，然后慢慢搞
+    }
 }

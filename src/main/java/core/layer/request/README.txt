@@ -1,0 +1,1 @@
+# 用户会话哦，要是token形式，这个session在很早就应该已经存在容器里面了，估计spring session已经实现了。现在找找。

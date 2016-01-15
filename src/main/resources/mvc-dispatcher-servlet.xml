@@ -10,14 +10,38 @@
 
     <!-- 启用spring MVC注解支持 ？这个加了解析错误？版本问题？！ -->
     <!--<mvc:annotation-driven />-->
-    <!-- 注解配置 -->
+    <!-- mvc 注解配置 默认配置 -->
     <context:component-scan base-package="core.app"/>
+    <context:component-scan base-package="com.passport"/>
+
+    <!--<context:component-scan base-package="com.passport.controller.action.v1"/>-->
+    <!--<context:component-scan base-package="com.passport.controller.api.v1"/>-->
+
     <!-- 使Spring关注Annotation -->
     <!--<context:annotation-config />-->
 
+    <!-- web视图配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
+        <!-- 静态文件 -->
+        <!--<mvc:resources location="/WEB-INF/resources/" mapping="/WEB-INF/resources/**" />-->
     </bean>
+
+    <!--拦截器配置  -->
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**" />-->
+            <!--<mvc:exclude-mapping path="/manager/login"/>-->
+            <!--<mvc:exclude-mapping path="/manager/toLogin"/>-->
+            <!--<mvc:exclude-mapping path="/manager/register"/>-->
+            <!--<mvc:exclude-mapping path="/production/fonts/**"/>-->
+            <!--<mvc:exclude-mapping path="/production/css/**"/>-->
+            <!--<mvc:exclude-mapping path="/production/js/**"/>-->
+            <!--<mvc:exclude-mapping path="/production/images/**"/>-->
+            <!--<mvc:exclude-mapping path="/production/less/**"/>-->
+            <!--<bean class="com.npw.debris.web.interceptor.SecurityInterceptor" />-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 
 </beans>

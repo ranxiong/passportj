@@ -11,7 +11,7 @@ import javax.annotation.Resource;
  * Created by Administrator on 2015/12/11.
  */
 //@Transactional
-@Service("loginService")
+@Service
 public class LoginService {
 
     //@Resource
@@ -23,5 +23,9 @@ public class LoginService {
 //        System.out.println(memberEntity);
 
         return true;
+    }
+
+    public String getUserName(){
+        return  "test user";
     }
 }

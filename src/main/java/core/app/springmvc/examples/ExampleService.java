@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class ExampleService {
 
     public String getHello() {
-        return " hello word! this is spring mvc app.";
+        return " hello word!";
+        //  this is spring mvc app.
     }
 }
