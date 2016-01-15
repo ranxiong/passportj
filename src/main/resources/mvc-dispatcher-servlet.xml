@@ -6,18 +6,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- spring mvc 相关配置 -->
 
-    <!-- 启用spring MVC注解支持 -->
-    <mvc:annotation-driven />
-
+    <!-- 启用spring MVC注解支持 ？这个加了解析错误？版本问题？！ -->
+    <!--<mvc:annotation-driven />-->
+    <!-- 注解配置 -->
+    <context:component-scan base-package="core.app"/>
     <!-- 使Spring关注Annotation -->
     <!--<context:annotation-config />-->
-
-    <!-- 让Spring通过自动扫描来查询和管理Bean -->
-    <!-- root -->
-    <context:component-scan base-package="core.controller.springmvcexamples"/>
-    <context:component-scan base-package="com.passport.controller.action.v1"/>
-    <context:component-scan base-package="com.passport.controller.api.v1"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>

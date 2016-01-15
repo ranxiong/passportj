@@ -1,4 +1,4 @@
-package core.controller;
+package core.app.springmvc;
 
 /**
  * Created by panyao on 15/12/27.

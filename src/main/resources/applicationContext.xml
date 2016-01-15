@@ -5,9 +5,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- 注解配置 -->
+    <!-- 让Spring通过自动扫描来查询和管理Bean -->
+    <!-- service root -->
+    <context:component-scan base-package="com.passport.controller.action.v1"/>
+    <context:component-scan base-package="com.passport.controller.api.v1"/>
+
     <context:component-scan base-package="com.passport.service"/>
     <context:component-scan base-package="com.passport.model"/>
+    <context:component-scan base-package="com.passport.entity"/>
 
     <!-- hibernate -->
     <!--<bean id="sessionFactoryUC" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">-->
