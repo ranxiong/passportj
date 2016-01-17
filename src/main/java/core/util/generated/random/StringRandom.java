@@ -9,35 +9,39 @@ import java.util.Random;
  */
 public class StringRandom implements IRandom {
 
-    @Override
-    public void setRandomValue() {
+    // 数字，小写字母，大写字母
+    private static final String cells = NUMERIC_CELLS + CHARACTER_CELLS + CHARACTER_UPPER_CELLS;
+    private static final byte size = 4;
 
+    @Override
+    public String generated() {
+        return this.random(cells, size);
     }
 
     @Override
-    public void generated() {
-
+    public String generated(byte size) {
+        return this.random(cells, size);
     }
 
     @Override
-    public void setResultSize() {
-
+    public String generated(String cells) {
+        return this.random(cells, size);
     }
 
-//    public String random() {
-//
-//        char[] chars = charString.toCharArray();
-//
-//        int charLength = chars.length;
-//
-//        Random random = new Random(charLength);
-//
-//        StringBuffer stringBuffer = new StringBuffer();
-//
-//        for (int i = 0; i < length; i++) {
-//            stringBuffer.append(chars[random.nextInt()]);
-//        }
-//
-//        return stringBuffer.toString();
-//    }
+    @Override
+    public String generated(String cells, byte size) {
+        return this.random(cells, size);
+    }
+
+    private String random(String cells, byte size) {
+        char[] chars = cells.toCharArray();
+        int charLength = chars.length;
+        Random random = new Random(charLength);
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < charLength; i++) {
+            stringBuffer.append(chars[random.nextInt()]);
+        }
+        return stringBuffer.toString();
+    }
+
 }

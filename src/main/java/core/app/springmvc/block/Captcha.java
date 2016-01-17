@@ -5,6 +5,7 @@ package core.app.springmvc.block;
  */
 
 import core.block.captcha.ImageCaptcha;
+import javafx.application.Application;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +21,7 @@ public class Captcha {
     @RequestMapping( method = RequestMethod.GET)
     public String GET() {
         ImageCaptcha imageCaptcha = new ImageCaptcha();
-        imageCaptcha.generated();
+        //imageCaptcha.generated();
 
         return "login success......";
     }

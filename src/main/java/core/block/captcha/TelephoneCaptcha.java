@@ -7,12 +7,22 @@ import core.block.ICaptcha;
  */
 public class TelephoneCaptcha extends AbstractCaptcha implements ICaptcha {
     @Override
-    public void setTTL(short TTL) {
-
+    public CaptchaValue generated() {
+        return null;
     }
 
     @Override
-    public CaptchaValue generate() {
+    public CaptchaValue generated(short TTL) {
+        return null;
+    }
+
+    @Override
+    public CaptchaValue generated(CAPTCHA_TYPE type) {
+        return null;
+    }
+
+    @Override
+    public CaptchaValue generated(CAPTCHA_TYPE type, short TTL) {
         return null;
     }
 

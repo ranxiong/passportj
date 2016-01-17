@@ -8,17 +8,22 @@ import core.util.generated.IRandom;
 public class NumericRandom implements IRandom {
 
     @Override
-    public void setRandomValue() {
-
+    public Integer generated() {
+        return null;
     }
 
     @Override
-    public void generated() {
-
+    public Integer generated(byte size) {
+        return null;
     }
 
     @Override
-    public void setResultSize() {
+    public Integer generated(String cells) {
+        return null;
+    }
 
+    @Override
+    public Integer generated(String cells, byte size) {
+        return null;
     }
 }
