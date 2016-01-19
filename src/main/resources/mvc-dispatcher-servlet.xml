@@ -11,7 +11,7 @@
     <!-- 启用spring MVC注解支持 ？这个加了解析错误？版本问题？！ -->
     <!--<mvc:annotation-driven />-->
     <!-- mvc 注解配置 默认配置 -->
-    <context:component-scan base-package="core.app"/>
+    <context:component-scan base-package="core.app.springmvc"/>
     <context:component-scan base-package="com.passport"/>
 
     <!--<context:component-scan base-package="com.passport.controller.action.v1"/>-->

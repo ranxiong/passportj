@@ -1,6 +1,6 @@
-package core.block;
+package core.layer;
 
-import core.block.captcha.CaptchaValue;
+import core.layer.captcha.CaptchaValue;
 
 /**
  * Created by Administrator on 2016/1/15.
@@ -17,47 +17,57 @@ public interface ICaptcha {
         NUMBER_CAPTCHA, LETTER_CAPTCHA, DICTIONARY_CAPTCHA, MIX_CAPTCHA
     }
 
+
+
     /**
      * 生成一个验证码 返回验证码值对象
      *
      * @return
      */
-    CaptchaValue generated(String key);
+    CaptchaValue generated(String uniqueKey);
 
+    CaptchaValue generated(String uniqueKey, byte size);
 
     /**
      * 生成一个验证码，设置过期时间 返回验证码值对象
      *
      * @return
      */
-    CaptchaValue generated(String key, short TTL);
+    CaptchaValue generated(String uniqueKey, short TTL);
+
+    CaptchaValue generated(String uniqueKey, byte size, short TTL);
+
 
     /**
      * 生成一个验证码, 选择验证码类型 返回验证码值对象
      *
      * @return
      */
-    CaptchaValue generated(String key, CAPTCHA_TYPE type);
+    CaptchaValue generated(String uniqueKey, CAPTCHA_TYPE type);
+
+    CaptchaValue generated(String uniqueKey, CAPTCHA_TYPE type, byte size);
 
     /**
      * 生成一个验证码, 选择验证码类型，设置过期时间 返回验证码值对象
      *
      * @return
      */
-    CaptchaValue generated(String key, CAPTCHA_TYPE type, short TTL);
+    CaptchaValue generated(String uniqueKey, CAPTCHA_TYPE type, short TTL);
+
+    CaptchaValue generated(String uniqueKey, CAPTCHA_TYPE type, byte size ,short TTL);
 
     /**
      * 验证验证码
      *
      * @return
      */
-    boolean verify(String key);
+    boolean verify(String uniqueKey, String code);
 
     /**
      * 删除一个验证码
      *
      * @return
      */
-    boolean delete(String key);
+    boolean delete(String uniqueKey);
 
 }

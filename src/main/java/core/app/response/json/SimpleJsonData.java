@@ -1,7 +1,7 @@
-package core.layer.response.json;
+package core.app.response.json;
 
-import core.layer.response.IErrorThrowable;
-import core.layer.response.IResponseJson;
+import core.app.response.IErrorThrowable;
+import core.app.response.IResponseJson;
 
 import java.util.List;
 

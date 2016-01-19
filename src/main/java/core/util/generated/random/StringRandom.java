@@ -10,36 +10,34 @@ import java.util.Random;
 public class StringRandom implements IRandom {
 
     // 数字，小写字母，大写字母
-    private static final String cells = NUMERIC_CELLS + CHARACTER_CELLS + CHARACTER_UPPER_CELLS;
-    private static final byte size = 4;
+    private static final String _CELLS = NUMERIC_CELLS + CHARACTER_CELLS + CHARACTER_UPPER_CELLS;
+    private static final byte _SIZE = 4;
 
     @Override
     public String generated() {
-        return this.random(cells, size);
+        return this._random(_CELLS, _SIZE);
     }
 
     @Override
     public String generated(byte size) {
-        return this.random(cells, size);
+        return this._random(_CELLS, size);
     }
 
     @Override
     public String generated(String cells) {
-        return this.random(cells, size);
+        return this._random(cells, _SIZE);
     }
 
     @Override
     public String generated(String cells, byte size) {
-        return this.random(cells, size);
+        return this._random(cells, size);
     }
 
-    private String random(String cells, byte size) {
-        char[] chars = cells.toCharArray();
-        int charLength = chars.length;
-        Random random = new Random(charLength);
+    private String _random(String cells, byte size) {
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < charLength; i++) {
-            stringBuffer.append(chars[random.nextInt()]);
+        Random random = new Random();
+        for (byte i = 0; i < size; i++) {
+            stringBuffer.append(cells.charAt(random.nextInt(cells.length() - 1)));
         }
         return stringBuffer.toString();
     }

@@ -1,4 +1,4 @@
-package core.layer.response;
+package core.app.response;
 
 /**
  * Created by Administrator on 2016/1/15.

@@ -1,3 +1,9 @@
 /.idea
 /target
 passport.iml
+
+/.myeclipse
+/.settings
+.classpath
+.mymetadata
+.project

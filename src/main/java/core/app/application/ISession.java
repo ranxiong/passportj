@@ -1,4 +1,4 @@
-package core.layer.application;
+package core.app.application;
 
 /**
  * Created by Administrator on 2016/1/15.

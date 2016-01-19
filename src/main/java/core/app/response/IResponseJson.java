@@ -1,4 +1,4 @@
-package core.layer.response;
+package core.app.response;
 
 import java.util.ArrayList;
 import java.util.HashMap;
