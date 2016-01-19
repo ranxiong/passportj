@@ -1,11 +1,12 @@
 package com.passport.controller.action.access;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/1/15.
@@ -22,6 +23,21 @@ public class SignIn {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String GET() {
+
+//        List<String> features = Arrays.asList("Lambdas", "Default Method",
+//                "Stream API", "Date and Time API");
+//        for (String feature : features) {
+//            System.out.println(feature);
+//        }
+
+        List features = Arrays.asList("Lambdas", "Default Method", "Stream API",
+                "Date and Time API");
+        //features.forEach(n -> System.out.println(n));
+        //features.forEach(n->System.out.println(n));
+
+        //features.forEach(n -> System.out.print(n));
+        features.forEach(n->System.out.print(n));
+
         return "weclome to sign in page.";
     }
 
