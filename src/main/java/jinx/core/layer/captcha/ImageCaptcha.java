@@ -77,65 +77,72 @@ public class ImageCaptcha extends AbstractCaptcha implements ICaptcha {
 
         if (CAPTCHA_TYPE.NUMBER_CAPTCHA == type) {
             return sr.generated(IRandom.NUMERIC_CELLS, size);
-        }else if(CAPTCHA_TYPE.LETTER_CAPTCHA == type){
+        } else if (CAPTCHA_TYPE.LETTER_CAPTCHA == type) {
             return sr.generated(IRandom.CHARACTER_CELLS, size);
-        }else if(CAPTCHA_TYPE.DICTIONARY_CAPTCHA == type){
+        } else if (CAPTCHA_TYPE.DICTIONARY_CAPTCHA == type) {
             // TODO un support
             return null;
-        }else if(CAPTCHA_TYPE.MIX_CAPTCHA == type){
+        } else if (CAPTCHA_TYPE.MIX_CAPTCHA == type) {
             return sr.generated(size);
         }
         return null;
     }
 
-    private void _buildContainer(String uniqueKey, String code){
+    private void _buildContainer(String uniqueKey, String code) {
 
     }
 
     private CaptchaValue<BufferedImage> _buildKey(String uniqueKey, String code, short TTL) {
         // TODO 把验证码绑定到可以储存的容器 这里先不要做
         _buildContainer(uniqueKey, code);
-        return new CaptchaValue<BufferedImage>(uniqueKey, code, TTL, _drawImage(code));
+        return new CaptchaValue(uniqueKey, code, TTL, _drawImage(code));
     }
 
 
     /**
      * TODO web 项目涉及的图形操作并不多，所以这里不做设计，直接一锅端
+     *
      * @param code
      * @return
      */
     private BufferedImage _drawImage(String code) {
         short width = 80;
         short height = 25;
-
+        byte line = 20;
         BufferedImage buffImg = new BufferedImage(width, height,
                 BufferedImage.TYPE_INT_RGB);
         Graphics g = buffImg.createGraphics();
         // 将图像填充为白色
         g.setColor(Color.WHITE);
+        Random random = new Random();
+        for (byte i = 0; i < line; i++) {
+            int x = random.nextInt(width);
+            int y = random.nextInt(height);
+            int xl = random.nextInt(12);
+            int yl = random.nextInt(12);
+            g.drawLine(x, y, x + xl, y + yl); //线条数
+        }
         g.fillRect(0, 0, width, height);
 
         // 创建字体，字体的大小应该根据图片的高度来定."Times New Roman"/Fixedsys, Font.PLAIN, 20
         Font font = new Font("Fixedsys", Font.PLAIN, 20);
-
         // 设置字体。
         g.setFont(font);
-
         // 画边框。
         g.setColor(Color.BLACK);
         g.drawRect(11, 0, width - 12, height - 1);
-        Random random = new Random();
 
         int red = 0, green = 0, blue = 0;
+        byte i = 0;
         for (char c : code.toCharArray()) {
             // 产生随机的颜色分量来构造颜色值，这样输出的每位数字的颜色值都将不同。
             red = random.nextInt(255);
             green = random.nextInt(255);
             blue = random.nextInt(255);
-
             // 用随机产生的颜色将验证码绘制到图像中。
             g.setColor(new Color(red, green, blue));
-            g.drawString(c + "", (red + 1) * (width / (code.length() + 1)), height - 4);
+            g.drawString(c + "", (i + 1) * (width / (code.length() + 1)), height - 4);
+            i++;
         }
         return buffImg;
     }

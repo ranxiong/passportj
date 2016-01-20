@@ -36,22 +36,13 @@ public class SignIn {
         //features.forEach(n->System.out.println(n));
 
         //features.forEach(n -> System.out.print(n));
+        //features.forEach(n -> System.out.print(n));
         features.forEach(n->System.out.print(n));
+
+
 
         return "weclome to sign in page.";
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /**

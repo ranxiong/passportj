@@ -1,6 +1,6 @@
-package jinx.app.application.session;
+package jinx.app.context.session;
 
-import jinx.app.application.ISession;
+import jinx.app.context.ISession;
 
 import java.util.UUID;
 
