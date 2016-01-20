@@ -12,7 +12,7 @@
     <!--<mvc:annotation-driven />-->
     <!-- mvc 注解配置 默认配置 -->
     <context:component-scan base-package="jinx.app.springmvc"/>
-    <context:component-scan base-package="com.passport"/>
+    <!--<context:component-scan base-package="com.passport"/>-->
 
     <!--<context:component-scan base-package="com.passport.controller.action.v1"/>-->
     <!--<context:component-scan base-package="com.passport.controller.api.v1"/>-->
