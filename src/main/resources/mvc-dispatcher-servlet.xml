@@ -3,6 +3,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
@@ -10,9 +11,8 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!-- spring mvc 相关配置 -->
-
     <!-- 启用spring MVC注解支持 ？这个加了解析错误？版本问题？！ -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
     <!-- mvc 注解配置 默认配置 -->
     <context:component-scan base-package="jinx.app.springmvc"/>
     <!--<context:component-scan base-package="com.passport"/>-->
@@ -25,27 +25,33 @@
 
     <!-- web视图配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="prefix" value="/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--<bean-->
+    <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver"-->
+    <!--p:order="100" p:viewClass="org.springframework.web.servlet.view.JstlView"-->
+    <!--p:prefix="/pages/" p:suffix=".jsp" />-->
+
     <!-- 静态文件 -->
-    <mvc:resources location="/WEB-INF/resources/" mapping="/WEB-INF/resources/**" />
+    <!--<mvc:resources location="/pages/resources/" mapping="/pages/resources/**" />-->
+    <!--<mvc:resources location="/pages/angulr/" mapping="/pages/angulr/**" />-->
 
     <!--拦截器配置  -->
     <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/**" />-->
-            <!--<mvc:exclude-mapping path="/manager/login"/>-->
-            <!--<mvc:exclude-mapping path="/manager/toLogin"/>-->
-            <!--<mvc:exclude-mapping path="/manager/register"/>-->
-            <!--<mvc:exclude-mapping path="/production/fonts/**"/>-->
-            <!--<mvc:exclude-mapping path="/production/css/**"/>-->
-            <!--<mvc:exclude-mapping path="/production/js/**"/>-->
-            <!--<mvc:exclude-mapping path="/production/images/**"/>-->
-            <!--<mvc:exclude-mapping path="/production/less/**"/>-->
-            <!--<bean class="com.npw.debris.web.interceptor.SecurityInterceptor" />-->
-        <!--</mvc:interceptor>-->
+    <!--<mvc:interceptor>-->
+    <!--<mvc:mapping path="/**" />-->
+    <!--<mvc:exclude-mapping path="/manager/login"/>-->
+    <!--<mvc:exclude-mapping path="/manager/toLogin"/>-->
+    <!--<mvc:exclude-mapping path="/manager/register"/>-->
+    <!--<mvc:exclude-mapping path="/production/fonts/**"/>-->
+    <!--<mvc:exclude-mapping path="/production/css/**"/>-->
+    <!--<mvc:exclude-mapping path="/production/js/**"/>-->
+    <!--<mvc:exclude-mapping path="/production/images/**"/>-->
+    <!--<mvc:exclude-mapping path="/production/less/**"/>-->
+    <!--<bean class="com.npw.debris.web.interceptor.SecurityInterceptor" />-->
+    <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
 
 </beans>
