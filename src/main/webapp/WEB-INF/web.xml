@@ -4,7 +4,7 @@
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
 	<!-- 工程名字 -->
-	<display-name>Password</display-name>
+	<display-name>passport</display-name>
 
 	<!-- spring 配置文件 -->
 	<context-param>
