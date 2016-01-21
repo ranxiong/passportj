@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Created by panyao on 15/10/11.
  */
-public class StringRandom implements IRandom {
+public class StringRandom implements IRandom<String> {
 
     // 数字，小写字母，大写字母
     private static final String _CELLS = NUMERIC_CELLS + CHARACTER_CELLS + CHARACTER_UPPER_CELLS;

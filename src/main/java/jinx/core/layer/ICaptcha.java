@@ -17,8 +17,6 @@ public interface ICaptcha {
         NUMBER_CAPTCHA, LETTER_CAPTCHA, DICTIONARY_CAPTCHA, MIX_CAPTCHA
     }
 
-
-
     /**
      * 生成一个验证码 返回验证码值对象
      *

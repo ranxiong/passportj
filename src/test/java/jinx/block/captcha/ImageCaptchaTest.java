@@ -43,6 +43,6 @@ public class ImageCaptchaTest {
 
     @Test
     public void testDelete() throws Exception {
-
+        ic.delete(uniqueKey);
     }
 }

@@ -5,28 +5,32 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!-- spring mvc 相关配置 -->
 
     <!-- 启用spring MVC注解支持 ？这个加了解析错误？版本问题？！ -->
-    <!--<mvc:annotation-driven />-->
+    <mvc:annotation-driven />
     <!-- mvc 注解配置 默认配置 -->
     <context:component-scan base-package="jinx.app.springmvc"/>
     <!--<context:component-scan base-package="com.passport"/>-->
 
-    <!--<context:component-scan base-package="com.passport.controller.action.v1"/>-->
-    <!--<context:component-scan base-package="com.passport.controller.api.v1"/>-->
-
     <!-- 使Spring关注Annotation -->
     <!--<context:annotation-config />-->
+
+    <!-- 默认使用库的首页(请求根目录，重定向到/jinx下)，业务流程方面，注释下面配置或者修改到自己定义的首页 -->
+    <mvc:view-controller path="/" view-name="redirect:/jinx"/>
 
     <!-- web视图配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
-        <!-- 静态文件 -->
-        <!--<mvc:resources location="/WEB-INF/resources/" mapping="/WEB-INF/resources/**" />-->
     </bean>
+
+    <!-- 静态文件 -->
+    <mvc:resources location="/WEB-INF/resources/" mapping="/WEB-INF/resources/**" />
 
     <!--拦截器配置  -->
     <!--<mvc:interceptors>-->

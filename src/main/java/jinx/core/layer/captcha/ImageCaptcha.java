@@ -95,7 +95,7 @@ public class ImageCaptcha extends AbstractCaptcha implements ICaptcha {
     private CaptchaValue<BufferedImage> _buildKey(String uniqueKey, String code, short TTL) {
         // TODO 把验证码绑定到可以储存的容器 这里先不要做
         _buildContainer(uniqueKey, code);
-        return new CaptchaValue(uniqueKey, code, TTL, _drawImage(code));
+        return new CaptchaValue<BufferedImage>(uniqueKey, code, TTL, _drawImage(code));
     }
 
 

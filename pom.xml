@@ -10,7 +10,7 @@
 
     <properties>
         <file.encoding>UTF-8</file.encoding>
-        <java.version>1.8</java.version>
+        <java.version>1.7</java.version>
 
         <!-- 把核心代码写成maven管理的包，相当于passport是一个网站项目，而core是web的一个基本实现支持 -->
         <!--<jinx.jinx.version>1.0.0</jinx.jinx.version>-->
