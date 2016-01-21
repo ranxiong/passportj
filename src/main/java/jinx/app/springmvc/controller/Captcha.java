@@ -29,6 +29,9 @@ public class Captcha {
     public void GET(HttpServletResponse response) throws IOException {
         ImageCaptcha imageCaptcha = new ImageCaptcha();
         CaptchaValue<BufferedImage> cv = imageCaptcha.generated(new TokenSession().getSessionId());
+
+        // 下载头
+        //response.setHeader("Content-Disposition", "attachment;filename=test.jpeg");
         response.setHeader("Cache-Control", "no-store");
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);

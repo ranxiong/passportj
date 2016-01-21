@@ -7,8 +7,6 @@ import jinx.app.response.IErrorThrowable;
  */
 public class MessageException extends Exception implements IErrorThrowable {
 
-
-
     @Override
     public short getErrorCode() {
         return 0;
