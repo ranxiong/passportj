@@ -1,4 +1,4 @@
-package jinx.app.springmvc.examples;
+package jinx.app.springmvc.controller.examples;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

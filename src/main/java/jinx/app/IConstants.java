@@ -1,8 +1,5 @@
 package jinx.app;
 
-import jinx.app.springmvc.examples.Document;
-import jinx.core.layer.container.IContainer;
-
 /**
  * Created by Administrator on 2016/1/15.
  * app系统模块下定义不变的系统变量

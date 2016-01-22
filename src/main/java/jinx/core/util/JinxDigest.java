@@ -4,7 +4,9 @@ import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import java.io.File;
+import java.io.IOException;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * TODO 多线程问题
@@ -29,7 +31,7 @@ public final class JinxDigest {
      * @return
      * @throws Exception
      */
-    public static String decryptBASE64(String decryptString) throws Exception {
+    public static String decryptBASE64(String decryptString) throws IOException {
         return new String((new BASE64Decoder()).decodeBuffer(decryptString));
     }
 
@@ -40,26 +42,15 @@ public final class JinxDigest {
      * @return
      * @throws Exception
      */
-    public static String encryptHexMD5(String encryptString) throws Exception {
+    public static String encryptHexMD5(String encryptString) throws NoSuchAlgorithmException {
         return _encryptHexMD5(encryptString.getBytes());
-    }
-
-    /**
-     * 生成文件md5
-     *
-     * @param file
-     * @return
-     * @throws Exception
-     */
-    public static String encryptHexMD5(File file) throws Exception {
-        return "";
     }
 
     /**
      * @param encryptString
      * @return
      */
-    public static String encryptHexSHA1(String encryptString) throws Exception {
+    public static String encryptHexSHA1(String encryptString) throws NoSuchAlgorithmException {
         return _encryptHexSHA1(encryptString.getBytes());
     }
 
@@ -74,7 +65,7 @@ public final class JinxDigest {
      * @return
      * @throws Exception
      */
-    private static byte[] _encrypt(byte[] bytes, String digestKey) throws Exception {
+    private static byte[] _encrypt(byte[] bytes, String digestKey) throws NoSuchAlgorithmException {
         MessageDigest digest = MessageDigest.getInstance(digestKey);
         digest.update(bytes);
         return digest.digest();
@@ -102,7 +93,7 @@ public final class JinxDigest {
      * @return
      * @throws Exception
      */
-    private static String _encryptHexMD5(byte[] bytes) throws Exception {
+    private static String _encryptHexMD5(byte[] bytes) throws NoSuchAlgorithmException {
         return _encryptHexString(_encrypt(bytes, KEY_MD5));
     }
 
@@ -113,7 +104,7 @@ public final class JinxDigest {
      * @return
      * @throws Exception
      */
-    private static String _encryptHexSHA1(byte[] bytes) throws Exception {
+    private static String _encryptHexSHA1(byte[] bytes) throws NoSuchAlgorithmException {
         return _encryptHexString(_encrypt(bytes, KEY_SHA1));
     }
 

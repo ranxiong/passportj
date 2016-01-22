@@ -21,7 +21,8 @@
     <context:annotation-config/>
 
     <!-- 默认使用库的首页(请求根目录，重定向到/jinx下)，业务流程方面，注释下面配置或者修改到自己定义的首页 -->
-    <mvc:view-controller path="/" view-name="redirect:/jinx"/>
+    <mvc:view-controller path="/" view-name="redirect:/jinx/index.html"/>
+    <!--<mvc:view-controller path="/" view-name="redirect:/angulr/index.html"/>-->
 
     <!-- web视图配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -35,6 +36,7 @@
     <mvc:resources mapping="/js/**" location="/WEB-INF/resources/js/"/>
 
     <mvc:resources mapping="/angulr/**" location="/WEB-INF/angulr/"/>
+    <mvc:resources mapping="/jinx/**" location="/WEB-INF/jinx/"/>
 
     <!--拦截器配置-->
     <!--<mvc:interceptors>-->

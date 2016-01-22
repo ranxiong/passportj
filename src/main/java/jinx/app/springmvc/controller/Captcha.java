@@ -4,7 +4,6 @@ package jinx.app.springmvc.controller;
  * Created by Administrator on 2015/12/4.
  */
 
-import jinx.app.context.session.TokenSession;
 import jinx.core.layer.captcha.CaptchaValue;
 import jinx.core.layer.captcha.ImageCaptcha;
 import org.springframework.stereotype.Controller;
@@ -17,6 +16,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * 验证码 改接口返回
@@ -28,7 +28,7 @@ public class Captcha {
     @RequestMapping(method = RequestMethod.GET)
     public void GET(HttpServletResponse response) throws IOException {
         ImageCaptcha imageCaptcha = new ImageCaptcha();
-        CaptchaValue<BufferedImage> cv = imageCaptcha.generated(new TokenSession().getSessionId());
+        CaptchaValue<BufferedImage> cv = imageCaptcha.generated(UUID.randomUUID().toString());
 
         // 下载头
         //response.setHeader("Content-Disposition", "attachment;filename=test.jpeg");

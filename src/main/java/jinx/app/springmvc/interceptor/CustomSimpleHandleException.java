@@ -15,6 +15,12 @@ import java.io.PrintWriter;
  */
 public class CustomSimpleHandleException extends SimpleMappingExceptionResolver {
 
+    public void process(){
 
+        // TODO 1 转换异常为响应json
+
+        // TODO 2 记录错误日志
+
+    }
 
 }
